@@ -13,6 +13,8 @@
     // scoreboard
         // Check for data in local storage
         var highScore = localStorage.getItem('highScore');
+        var scores = 0;
+        timerInitialLength = 60;
 
 
 // Storage for questions and answers
@@ -39,13 +41,24 @@ var currentQuestion = 0;
 
 function displayQuestion(){
     var question = questionContent[currentQuestion];
-    questionText.innerHTML = "<h1>" + question.question + "</h1>";
+    questionText.innerHTML = "<h2>" + question.question + "</h2>";
     optionA.innerHTML = question.optionA;
     optionB.innerHTML = question.optionB;
     optionC.innerHTML = question.optionC;
     optionD.innerHTML = question.optionD;
+    
 
+        function checkAnswers(userAnswer) {
+            if (question[currentQuestion].answer == userAnswer){
+                scores++;
+                currentQuestion++;
+            }else {
+                timerInitialLength-10;
+                currentQuestion++;
+        }
+    }
 }
+
 displayQuestion();
 
 
