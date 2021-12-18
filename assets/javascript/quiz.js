@@ -5,11 +5,11 @@
         var timerCount = document.getElementById("timerBox")
     // Questions
         var questionText = document.getElementById("questionText")
-    // Answers and correct answers
-        var optionA = document.getElementById("answerA")
-        var optionB = document.getElementById("answerB")
-        var optionC = document.getElementById("answerC")
-        var optionD = document.getElementById("answerD")
+    // Answers and options
+        var optionA = document.getElementById("optionA")
+        var optionB = document.getElementById("optionB")
+        var optionC = document.getElementById("optionC")
+        var optionD = document.getElementById("optionD")
     // scoreboard
         // Check for data in local storage
         var highScore = localStorage.getItem('highScore');
@@ -33,6 +33,9 @@ const questionContent = [
 }];
 
 // GAME FUNCTION
+console.log(questionText);
+console.log()
+
 
 var lastQuestion = questionContent.length-1;
 var currentQuestion = 0;
@@ -40,17 +43,20 @@ var currentQuestion = 0;
 function displayQuestion(){
     var question = questionContent[currentQuestion];
     questionText.innerHTML = "<h1>" + question.question + "</h1>";
-    optionA.innerHTML = "<p>" + question.optionA + "</p>";
-    optionB.innerHTML = "<p>" + question.optionB + "</p>";
-    optionC.innerHTML = "<p>" + question.optionC + "</p>";
-    optionD.innerHTML = "<p>" + question.optionD + "</p>";
+    optionA.innerHTML = question.optionA;
+    optionB.innerHTML = question.optionB;
+    optionC.innerHTML = question.optionC;
+    optionD.innerHTML = question.optionD;
 
 }
 displayQuestion();
 
+
+
 //TEST ZONE//
 console.log(questionContent);
 console.log(questionContent[0].question)
+console.log(questionContent[0].optionA)
 
 // function fillQuestion(i) {
 //     for (i=0 ; i<questionContent.length; i++){
