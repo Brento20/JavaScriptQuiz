@@ -6,18 +6,22 @@
     // Questions
         var questionText = document.querySelector("questionText")
     // Answers and correct answers
-        var answerA = document.querySelector("answerA")
-        var answerB = document.querySelector("answerB")
-        var answerC = document.querySelector("answerC")
-        var answerD = document.querySelector("answerD")
+        var optionA = document.querySelector("answerA")
+        var optionB = document.querySelector("answerB")
+        var optionC = document.querySelector("answerC")
+        var optionD = document.querySelector("answerD")
     // scoreboard
         // Check for data in local storage
+        var highScore = localStorage.getItem('highScore');
 
 
 // Storage for questions and answers
 const questionContent = [ {
     question: "When watching Jumanji and writing JavaScript you must:",
-    choices: ["Turn off the movie", "Google the IMDB of the whole cast and feel old", "Build as many Jumanji puns into your JS as possible", "Cry and accept defeat"],
+    optionA: "Turn off the movie",
+    optionB: "Google the IMDB of the whole cast and feel old",
+    optionC: "Build as many Jumanji puns into your JS as possible",
+    optionD: "Cry and accept defeat",
     answer: "Build as many Jumanji puns into your JS as possible",
 },
 {   question: "Rolling the dice is to Jumanji, what ____________ is to 'Javamanji':",
@@ -25,18 +29,20 @@ const questionContent = [ {
     answer: "Using math.random.",
 }];
 
+console.log(questionContent);
+
 
 //TEST ZONE//
-function fillQuestion() {
-    for (i=0 ; i<questionContent.length-1 ; i++){
-        document.getElementById("questionText").textContent = ("Question: " + questionContent);
-        console.log(questionContent.question);
+function fillQuestion(i) {
+    for (i=0 ; i<questionContent.length; i++){
+        let (questionText[i]) = questionContent.find(questionContent => questionContent.question);
+        console.log(questionText[i]);
 
     }
 };
 fillQuestion();
 
-fillQuestion();
+
 
 
 // Storage for vars
