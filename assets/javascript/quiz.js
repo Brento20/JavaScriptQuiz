@@ -33,9 +33,6 @@ const questionContent = [
 }];
 
 // GAME FUNCTION
-console.log(questionText);
-console.log()
-
 
 var lastQuestion = questionContent.length-1;
 var currentQuestion = 0;
@@ -55,8 +52,6 @@ displayQuestion();
 
 //TEST ZONE//
 console.log(questionContent);
-console.log(questionContent[0].question)
-console.log(questionContent[0].optionA)
 
 // function fillQuestion(i) {
 //     for (i=0 ; i<questionContent.length; i++){
