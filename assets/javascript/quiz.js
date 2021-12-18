@@ -15,18 +15,28 @@
 
 
 // Storage for questions and answers
-const question1 = ["When watching Jumanji and writing JavaScript you must:", "Turn off the movie", "Google the IMDB of the whole cast and feel old", "Build as many Jumanji puns into your JS as possible", "Cry and accept defeat"];
-const question2 = [];
-const question3 = [];
+const questionContent = {
+    question: "When watching Jumanji and writing JavaScript you must:",
+    choices: ["Turn off the movie", "Google the IMDB of the whole cast and feel old", "Build as many Jumanji puns into your JS as possible", "Cry and accept defeat"],
+    answer: "Build as many Jumanji puns into your JS as possible",
+};
+
+
+
+
+
 
 //TEST ZONE//
 function fillQuestion() {
-    questionText.textContent = question1[0];
-    answerA.textContent = question1[1];
-    answerB.textContent = question1[2];
-    answerC.textContent = question1[3];
-    answerD.textContent = question1[4];
-}
+    for (i=0 ; i<questionContent.length-1 ; i++){
+        document.getElementById("questionText").textContent = ("Question: " + questionContent);
+        console.log(questionContent.question);
+
+    }
+};
+fillQuestion();
+
+fillQuestion();
 
 
 // Storage for vars
