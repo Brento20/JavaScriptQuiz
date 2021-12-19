@@ -35,6 +35,9 @@ p {
     background-color: var(--darkbodyColor);
     max-width: 440px;
     height: 30px;
+    text-align: center;
+    font-weight: 800;
+    color: var(--lightText);
 }
 
 #quizContainer {
@@ -53,4 +56,13 @@ ol {
 
 li {
     color: var(--lightText);
+}
+
+#start:hover {
+    background-color: var(--accentColor);
+}
+
+li:hover {
+    background-color: var(--darkbodyColor);
+    color: var(--accentColor);
 }
