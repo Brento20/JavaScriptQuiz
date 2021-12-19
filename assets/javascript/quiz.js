@@ -4,10 +4,23 @@
 /////TABLE OF CONTENTS/////
 ///////////////////////////
 //0. Linking to HTML and setting variables.
+    //I added all the getElement and eventListener here.
+
 //1. Storage for Questions (Objects in array).
+    //To be able to add as many questions as I wanted, without having to alter the code, I used an array to fill a template function called displayQuestion.
+
 //2. Sound Effects.
+    //Sunday was a confusing day of coding so I added this to make me happy.
+
 //3. Variables for game function.
+    //These are going to help feed variable into my functions an needed to load after my storage for questions.
+
 //4. Game function.
+    // startButton(); - sets the display properties as needed for my HTML then calls my timer and displayQuestions functions.
+    // countDown(); - sets my timer and when it hits 0 will stop the game.
+    // displayQuestion(); - is the template that my object array fills.
+    // checkAnswer(); - this one does a lot of the heavy lifting, activated by the onclick property from the HTML it updates score, alters timer and checks to see if the game is over.
+
 //5. 
 
 
@@ -17,7 +30,7 @@
 
 
 
-//Things i need to link to HTML
+//0. Linking to HTML and setting variables.
     // Timer start
         var timerBox = document.getElementById("timerBox");
         var timeOut = document.getElementById("timeOut")
@@ -172,8 +185,7 @@ function checkAnswer(userAnswer){
         optionC.style.display = "none";
         optionD.style.display = "none";
         scoreBoard.style.display = "block";
-        timeLeft = -1;
-
+        timeLeft = 1;
     } else {
         quizContainer.style.display = "none";
         questionText.style.display = "none";
