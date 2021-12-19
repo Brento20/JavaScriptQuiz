@@ -18,22 +18,23 @@
     <title>JavaScript Quiz</title>
 </head>
 <body>
+    <div id="timerBox">TIMER</div>
 <!-- =====  ===== -->
     <header> 
         <h1>JAVAMANJI the QUIZ</h1><br>
         <p>"A game for those who seek to find a way to leave boot camp behind."</p>
-        <div id="timerBox">TIMER</div>
+        
         
     </header>
 <!-- ===== START BUTTON ===== -->
     <div id="start">START GAME</div>
     
-        <section class="quizContainer">
+        <section ID="quizContainer" style="display: none;">
             <ol style="display: none;" id="questionText">Question</ol>
-                <li style="display: none;" id="optionA">optionA</li>
-                <li style="display: none;" id="optionB">optionB</li>
-                <li style="display: none;" id="optionC">optionC</li>
-                <li style="display: none;" id="optionD">optionD</li>
+                <li class="option" style="display: none;" id="optionA">optionA</li>
+                <li class="option" style="display: none;" id="optionB">optionB</li>
+                <li class="option" style="display: none;" id="optionC">optionC</li>
+                <li class="option" style="display: none;" id="optionD">optionD</li>
         </section>
 <!-- ===== LINK TO QUIZ JAVASCRIPT ===== -->
     <footer>

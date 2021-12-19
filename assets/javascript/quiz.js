@@ -5,6 +5,8 @@
         var timerCount = document.getElementById("timerBox")
     // Start Game button
         var startButton = document.getElementById("start")
+        var header = document.querySelector("header")
+        var quizContainer = document.getElementById("quizContainer")
     // Questions and Options ID's linking to HTML
         var questionText = document.getElementById("questionText")
         var optionA = document.getElementById("optionA")
@@ -27,6 +29,8 @@
 
     function startGame (){
         startButton.style.display = "none";
+        header.style.display = "none";
+        quizContainer.style.display = "block";
         questionText.style.display = "block";
         optionA.style.display = "block";
         optionB.style.display = "block";

@@ -12,4 +12,45 @@ html {
     font-family: 'Poppins', sans-serif;
     font-size: 16px;
     line-height: 1.5;
+    
+}
+
+header {
+    max-width: 400px;
+    background-color: var(--lightbodyColor);
+    margin: auto;
+    margin-top: 15%;
+    padding: 20px;
+}
+h1 {
+    text-align: center;
+}
+
+p {
+    text-align: center;
+}
+
+#start {
+    margin:auto;
+    background-color: var(--darkbodyColor);
+    max-width: 440px;
+    height: 30px;
+}
+
+#quizContainer {
+    max-width: 400px;
+    background-color: var(--darkText);
+    margin: auto;
+    margin-top: 15%;
+    padding: 20px;
+}
+
+ol {
+    background-color: var(--accentColor);
+    color: var(--lightText);
+    
+}
+
+li {
+    color: var(--lightText);
 }
