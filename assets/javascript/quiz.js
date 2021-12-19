@@ -22,7 +22,7 @@
         // Check for data in local storage
         var highScore = localStorage.getItem('highScore');
         var score = 0;
-        var timer = 60;
+        var timeLeft = 60;
 
 // START GAME FUNCTION
 
@@ -36,10 +36,18 @@
         optionC.style.display = "block";
         optionD.style.display = "block";
         displayQuestion();
-        countdown();
-        //start timer here
+        setTimeout(countdown, 1000);
     }
 
+    function countdown() {
+        timeLeft--;
+        timerBox.innerHTML = String( timeLeft );
+        if (timeLeft > 0) {
+            setTimeout(countdown, 1000);
+        }
+    };
+    
+    
 
 // Storage for questions and answers
 const questionContent = [ 
@@ -91,8 +99,10 @@ function displayQuestion(){ //im pulling data out of my questionContent array an
 function checkAnswer(userAnswer){
     if( userAnswer == questionContent[currentQuestion].answer){
         score+10;
+        timeLeft+5;
     }else{
         score-10;
+        timeLeft-5;
     }
     console.log(userAnswer);
     console.log(questionContent[currentQuestion.answer])
@@ -116,43 +126,3 @@ console.log(score);
 
 //TEST ZONE//
 console.log(questionContent);
-
-// function fillQuestion(i) {
-//     for (i=0 ; i<questionContent.length; i++){
-//         let (questionText[i]) = questionContent.find(questionContent => questionContent.question);
-//         console.log(questionText[i]);
-
-//     }
-// };
-// fillQuestion();
-//END TEST ZONE
-
-
-
-
-// Storage for vars
-timerInitialLength = 0;
-
-
-
-
-//functions i need
-    //timer
-        //on click run timer
-        //on click load game
-function startTimer() {
-    timerInitialLength = 60;
-
-
-}
-
-    //the game
-        //get questions
-        //get answers
-        //if answer true ++ score var
-        //if answer false -10 timer
-        //reload get question/answer
-        //ask for name for leaderboard
-        //set name and scores on local storage
-
-    //display leaderboard
