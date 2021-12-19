@@ -1,8 +1,9 @@
 
 
 //Things i need to link to HTML
-    // Timer start/stop
+    // Timer start
         var timerBox = document.getElementById("timerBox");
+        var timeOut = document.getElementById("timeOut")
     // Start Game button
         var startButton = document.getElementById("start");
         var header = document.querySelector("header");
@@ -22,7 +23,7 @@
         // Check for data in local storage
         var highScore = localStorage.getItem('highScore');
         var score = 0;
-        var timeLeft = 60;
+        var timeLeft = 31.00;
 
 // START GAME FUNCTION
 
@@ -44,6 +45,14 @@
         timerBox.innerHTML = String( timeLeft );
         if (timeLeft > 0) {
             setTimeout(countdown, 1000);
+        } else {
+            quizContainer.style.display = "none";
+            questionText.style.display = "none";
+            optionA.style.display = "none";
+            optionB.style.display = "none";
+            optionC.style.display = "none";
+            optionD.style.display = "none";
+            timeOut.style.display = "block";
         }
     };
     
@@ -97,19 +106,19 @@ function displayQuestion(){ //im pulling data out of my questionContent array an
 
 
 function checkAnswer(userAnswer){
-    if( userAnswer == questionContent[currentQuestion].answer){
+    if ( userAnswer == questionContent[currentQuestion].answer){
         score+10;
         timeLeft+5;
-    }else{
+    } else {
         score-10;
         timeLeft-5;
-    }
+    };
     console.log(userAnswer);
     console.log(questionContent[currentQuestion.answer])
-    if(currentQuestion < lastQuestion){
+    if (currentQuestion < lastQuestion){
         currentQuestion++;
         displayQuestion();
-    }else{
+    } else {
         quizContainer.style.display = "none";
         questionText.style.display = "none";
         optionA.style.display = "none";
@@ -122,7 +131,3 @@ function checkAnswer(userAnswer){
 
 console.log(score);
 
-
-
-//TEST ZONE//
-console.log(questionContent);
