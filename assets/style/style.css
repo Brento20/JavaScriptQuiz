@@ -56,6 +56,15 @@ p {
     padding: 20px;
 }
 
+#scoreBoard {
+    max-width: 400px;
+    background-color: var(--darkText);
+    margin: auto;
+    margin-top: 15%;
+    padding: 20px;
+}
+
+
 ol {
     background-color: var(--accentColor);
     color: var(--lightText);

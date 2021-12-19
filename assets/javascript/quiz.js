@@ -1,9 +1,28 @@
 
 
+///////////////////////////
+/////TABLE OF CONTENTS/////
+///////////////////////////
+//0. Linking to HTML and setting variables.
+//1. Storage for Questions (Objects in array).
+//2. Sound Effects.
+//3. Variables for game function.
+//4. Game function.
+//5. 
+
+
+///////////////////////////
+///////////////////////////
+
+
+
+
 //Things i need to link to HTML
     // Timer start
         var timerBox = document.getElementById("timerBox");
         var timeOut = document.getElementById("timeOut")
+        var displayScores = document.getElementById("displayScores")
+        var scoreBoard = document.getElementById("scoreBoard");
     // Start Game button
         var startButton = document.getElementById("start");
         var header = document.querySelector("header");
@@ -16,16 +35,46 @@
         var optionD = document.getElementById("optionD");
     // Event Listeners
     startButton.addEventListener("click", startGame);
-    // optionA.addEventListener("click", );
+    // leaderBoard.addEventListener("click", leaderBoard);
 
+////////////////////////////////////////////////////////////////////////////////
+////////////////////////////////////////////////////////////////////////////////
 
-    // scoreboard
-        // Check for data in local storage
-        var highScore = localStorage.getItem('highScore');
-        var score = 0;
-        var timeLeft = 31.00;
+    ///1. Storage for Questions (Objects in array).
+const questionContent = [ 
+    {   question: "When watching Jumanji and writing JavaScript you must:",
+        optionA: "Turn off the movie",
+        optionB: "Google the IMDB of the whole cast and feel old",
+        optionC: "Build as many Jumanji puns into your JS as possible",
+        optionD: "Cry and accept defeat",
+        answer: "optionC",
+    },
+    {   question: "Rolling the dice is to Jumanji, what [BLANK] is to 'Java-manji':",
+        optionA: "Using a boolean.",
+        optionB: "Throwing your laptop into a river",
+        optionC: "Calling the customer service number",
+        optionD: "Using math.random.",
+        answer: "optionD",
+    },
+    {   question: "After adding a click event listener, the user can...",
+        optionA: "Hear a clicking sound in the walls",
+        optionB: "Expect the application to respond to mouse clicks",
+        optionC: "Use the mouse like a throwing star",
+        optionD: "Roll the dice, landing on pairs 3 times, to exit the game",
+        answer: "optionB",
+    },
+    {   question: "The chance of receiving additional points for having so many Jumanji references in a JavaScript quiz is?",
+        optionA: "Extremely high, the content was very entertaining",
+        optionB: "Low, I hate Jumanji",
+        optionC: "The application quit unexpectedly, report issue?",
+        optionD: "Ive been grading for hours and I just wanna take a nap?",
+        answer: "optionA",
+    }];
 
-// functions for sounds
+////////////////////////////////////////////////////////////////////////////////
+////////////////////////////////////////////////////////////////////////////////
+
+//2. Sound Effects.
 
 function playGameDrums() {
     var audio = new Audio('assets/sounds/jumanjiDrums.mp3');
@@ -35,43 +84,27 @@ function playCorrect() {
     var audio = new Audio('assets/sounds/correct.wav');
     audio.play();
 }
-function playInorrect() {
+function playIncorrect() {
     var audio = new Audio('assets/sounds/wrong.mp3');
     audio.play();
 }
 
-// Storage for questions and answers
-const questionContent = [ 
-{   question: "When watching Jumanji and writing JavaScript you must:",
-    optionA: "Turn off the movie",
-    optionB: "Google the IMDB of the whole cast and feel old",
-    optionC: "Build as many Jumanji puns into your JS as possible",
-    optionD: "Cry and accept defeat",
-    answer: "optionC",
-},
-{   question: "Rolling the dice is to Jumanji, what [BLANK] is to 'Java-manji':",
-    optionA: "Using a boolean.",
-    optionB: "Throwing your laptop into a river",
-    optionC: "Calling the customer service number",
-    optionD: "Using math.random.",
-    answer: "optionD",
-},
-{   question: "After adding a click event listener, the user can...",
-    optionA: "Hear a clicking sound in the walls",
-    optionB: "Expect the application to respond to mouse clicks",
-    optionC: "Use the mouse like a throwing star",
-    optionD: "Roll the dice, landing on pairs 3 times, to exit the game",
-    answer: "optionB",
-},
-{   question: "The chance of receiving additional points for having so many Jumanji references in a JavaScript quiz is?",
-    optionA: "Extremely high, the content was very entertaining",
-    optionB: "Low, I hate Jumanji",
-    optionC: "The application quit unexpectedly, report issue?",
-    optionD: "Ive been grading for hours and I just wanna take a nap?",
-    answer: "optionA",
-}];
+////////////////////////////////////////////////////////////////////////////////
+////////////////////////////////////////////////////////////////////////////////
 
-// START GAME FUNCTION
+//3. Variables for game function.
+
+
+var highScore = localStorage.getItem('highScore');
+var score = 0;
+var timeLeft = 31.00;
+var lastQuestion = questionContent.length-1; // I need to know this so I can end the game
+var currentQuestion = 0; // This is set to 0 because my questions are objects in the array above, I want to be able to ++ the currentQuestion value to move on to the next question as we go along.
+
+////////////////////////////////////////////////////////////////////////////////
+////////////////////////////////////////////////////////////////////////////////
+
+// 4. Game function.
 
 function startGame (){
     startButton.style.display = "none";
@@ -104,12 +137,6 @@ function countdown() {
 };
 
 
-
-// GAME FUNCTION
-
-var lastQuestion = questionContent.length-1; // I need to know this so I can end the game
-var currentQuestion = 0; // This is set to 0 because my questions are objects in the array above, I want to be able to ++ the currentQuestion value to move on to the next question as we go along.
-
 function displayQuestion(){ //im pulling data out of my questionContent array and using innerHTML to fill in the ol/li in my index.html using the ID tags i pulled using getElementId.
     var question = questionContent[currentQuestion];
     questionText.innerHTML = "<h2>" + question.question + "</h2>";
@@ -125,9 +152,11 @@ function checkAnswer(userAnswer){
     if ( userAnswer == questionContent[currentQuestion].answer){
         score++;
         playCorrect();
+        updateScores();
     } else {
         timeLeft--;
-        playInorrect();
+        playIncorrect();
+        
     }
     console.log(score);
     console.log(userAnswer);
@@ -135,6 +164,16 @@ function checkAnswer(userAnswer){
     if (currentQuestion < lastQuestion){
         currentQuestion++;
         displayQuestion();
+    } else if (currentQuestion == lastQuestion) {
+        quizContainer.style.display = "none";
+        questionText.style.display = "none";
+        optionA.style.display = "none";
+        optionB.style.display = "none";
+        optionC.style.display = "none";
+        optionD.style.display = "none";
+        scoreBoard.style.display = "block";
+        timeLeft = -1;
+
     } else {
         quizContainer.style.display = "none";
         questionText.style.display = "none";
@@ -146,5 +185,7 @@ function checkAnswer(userAnswer){
     }
 }
 
-
+function updateScores() {
+    displayScores.innerText = (" Your score is " + score);
+}
 

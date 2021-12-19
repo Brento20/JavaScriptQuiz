@@ -24,9 +24,14 @@ AS A coding boot camp student I WANT to take a timed quiz on JavaScript fundamen
 
 |Task| Status |
 |--|--|
-|Event listener starts (using click) |  |
-|Countdown timer starts with quiz||
-|Questions progress||
+|Event listener starts (using click). | complete |
+|Countdown timer starts with quiz.| complete |
+|Questions progress.| complete |
+|Game ends when all questions are answered or timer runs out.| semi-complete |
+|When game ends you can enter your name.||
+|Name and Score are saved to local Storage.||
+|Score Board shows recent scores.||
+|||
 
 
 ## Pseudo Code
