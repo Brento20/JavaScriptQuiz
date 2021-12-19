@@ -64,6 +64,7 @@ ol {
 
 li {
     color: var(--lightText);
+    background-color: gray;
 }
 
 #start:hover {

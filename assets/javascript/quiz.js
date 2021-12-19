@@ -25,38 +25,20 @@
         var score = 0;
         var timeLeft = 31.00;
 
-// START GAME FUNCTION
+// functions for sounds
 
-    function startGame (){
-        startButton.style.display = "none";
-        header.style.display = "none";
-        quizContainer.style.display = "block";
-        questionText.style.display = "block";
-        optionA.style.display = "block";
-        optionB.style.display = "block";
-        optionC.style.display = "block";
-        optionD.style.display = "block";
-        displayQuestion();
-        setTimeout(countdown, 1000);
-    }
-
-    function countdown() {
-        timeLeft--;
-        timerBox.innerHTML = String( timeLeft );
-        if (timeLeft > 0) {
-            setTimeout(countdown, 1000);
-        } else {
-            quizContainer.style.display = "none";
-            questionText.style.display = "none";
-            optionA.style.display = "none";
-            optionB.style.display = "none";
-            optionC.style.display = "none";
-            optionD.style.display = "none";
-            timeOut.style.display = "block";
-        }
-    };
-    
-    
+function playGameDrums() {
+    var audio = new Audio('assets/sounds/jumanjiDrums.mp3');
+    audio.play();
+}
+function playCorrect() {
+    var audio = new Audio('assets/sounds/correct.wav');
+    audio.play();
+}
+function playInorrect() {
+    var audio = new Audio('assets/sounds/wrong.mp3');
+    audio.play();
+}
 
 // Storage for questions and answers
 const questionContent = [ 
@@ -67,12 +49,12 @@ const questionContent = [
     optionD: "Cry and accept defeat",
     answer: "optionC",
 },
-{   question: "Rolling the dice is to Jumanji, what ____________ is to 'Java-manji':",
+{   question: "Rolling the dice is to Jumanji, what [BLANK] is to 'Java-manji':",
     optionA: "Using a boolean.",
     optionB: "Throwing your laptop into a river",
     optionC: "Calling the customer service number",
     optionD: "Using math.random.",
-    answer: "optionD.",
+    answer: "optionD",
 },
 {   question: "After adding a click event listener, the user can...",
     optionA: "Hear a clicking sound in the walls",
@@ -88,6 +70,40 @@ const questionContent = [
     optionD: "Ive been grading for hours and I just wanna take a nap?",
     answer: "optionA",
 }];
+
+// START GAME FUNCTION
+
+function startGame (){
+    startButton.style.display = "none";
+    header.style.display = "none";
+    quizContainer.style.display = "block";
+    questionText.style.display = "block";
+    optionA.style.display = "block";
+    optionB.style.display = "block";
+    optionC.style.display = "block";
+    optionD.style.display = "block";
+    displayQuestion();
+    setTimeout(countdown, 1000);
+    playGameDrums();
+}
+
+function countdown() {
+    timeLeft--;
+    timerBox.innerHTML = String( timeLeft );
+    if (timeLeft > 0) {
+        setTimeout(countdown, 1000);
+    } else {
+        quizContainer.style.display = "none";
+        questionText.style.display = "none";
+        optionA.style.display = "none";
+        optionB.style.display = "none";
+        optionC.style.display = "none";
+        optionD.style.display = "none";
+        timeOut.style.display = "block";
+    }
+};
+
+
 
 // GAME FUNCTION
 
@@ -107,14 +123,15 @@ function displayQuestion(){ //im pulling data out of my questionContent array an
 
 function checkAnswer(userAnswer){
     if ( userAnswer == questionContent[currentQuestion].answer){
-        score+10;
-        timeLeft+5;
+        score++;
+        playCorrect();
     } else {
-        score-10;
-        timeLeft-5;
-    };
+        timeLeft--;
+        playInorrect();
+    }
+    console.log(score);
     console.log(userAnswer);
-    console.log(questionContent[currentQuestion.answer])
+    console.log(questionContent[currentQuestion].answer)
     if (currentQuestion < lastQuestion){
         currentQuestion++;
         displayQuestion();
@@ -129,5 +146,5 @@ function checkAnswer(userAnswer){
     }
 }
 
-console.log(score);
+
 
