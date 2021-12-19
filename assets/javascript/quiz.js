@@ -2,7 +2,7 @@
 
 //Things i need to link to HTML
     // Timer start/stop
-        var timerCount = document.getElementById("timerBox");
+        var timerBox = document.getElementById("timerBox");
     // Start Game button
         var startButton = document.getElementById("start");
         var header = document.querySelector("header");
@@ -22,8 +22,7 @@
         // Check for data in local storage
         var highScore = localStorage.getItem('highScore');
         var score = 0;
-        timerInitialLength = 60;
-
+        var timer = 60;
 
 // START GAME FUNCTION
 
@@ -37,6 +36,7 @@
         optionC.style.display = "block";
         optionD.style.display = "block";
         displayQuestion();
+        countdown();
         //start timer here
     }
 
