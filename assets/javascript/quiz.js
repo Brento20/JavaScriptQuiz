@@ -2,26 +2,26 @@
 
 //Things i need to link to HTML
     // Timer start/stop
-        var timerCount = document.getElementById("timerBox")
+        var timerCount = document.getElementById("timerBox");
     // Start Game button
-        var startButton = document.getElementById("start")
-        var header = document.querySelector("header")
-        var quizContainer = document.getElementById("quizContainer")
+        var startButton = document.getElementById("start");
+        var header = document.querySelector("header");
+        var quizContainer = document.getElementById("quizContainer");
     // Questions and Options ID's linking to HTML
-        var questionText = document.getElementById("questionText")
-        var optionA = document.getElementById("optionA")
-        var optionB = document.getElementById("optionB")
-        var optionC = document.getElementById("optionC")
-        var optionD = document.getElementById("optionD")
+        var questionText = document.getElementById("questionText");
+        var optionA = document.getElementById("optionA");
+        var optionB = document.getElementById("optionB");
+        var optionC = document.getElementById("optionC");
+        var optionD = document.getElementById("optionD");
     // Event Listeners
-    startButton.addEventListener("click", startGame)
+    startButton.addEventListener("click", startGame);
     // optionA.addEventListener("click", );
 
 
     // scoreboard
         // Check for data in local storage
         var highScore = localStorage.getItem('highScore');
-        var scores = 0;
+        var score = 0;
         timerInitialLength = 60;
 
 
@@ -36,6 +36,7 @@
         optionB.style.display = "block";
         optionC.style.display = "block";
         optionD.style.display = "block";
+        displayQuestion();
         //start timer here
     }
 
@@ -86,20 +87,30 @@ function displayQuestion(){ //im pulling data out of my questionContent array an
     
 }
 
-function checkAnswers(userAnswer) {
-    if (questionContent[currentQuestion].answer == userAnswer){
-        scores++;
+
+function checkAnswer(userAnswer){
+    if( userAnswer == questionContent[currentQuestion].answer){
+        score+10;
+    }else{
+        score-10;
+    }
+    console.log(userAnswer);
+    console.log(questionContent[currentQuestion.answer])
+    if(currentQuestion < lastQuestion){
         currentQuestion++;
-    }else {
-        timerInitialLength-10;
-        currentQuestion++;
+        displayQuestion();
+    }else{
+        quizContainer.style.display = "none";
+        questionText.style.display = "none";
+        optionA.style.display = "none";
+        optionB.style.display = "none";
+        optionC.style.display = "none";
+        optionD.style.display = "none";
+    //
     }
 }
 
-
-displayQuestion();
-checkAnswers();
-
+console.log(score);
 
 
 
