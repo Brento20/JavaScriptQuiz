@@ -113,6 +113,7 @@ var score = 0;
 var timeLeft = 31.00;
 var lastQuestion = questionContent.length-1; // I need to know this so I can end the game
 var currentQuestion = 0; // This is set to 0 because my questions are objects in the array above, I want to be able to ++ the currentQuestion value to move on to the next question as we go along.
+var playerName = prompt("Please enter player name:");
 
 ////////////////////////////////////////////////////////////////////////////////
 ////////////////////////////////////////////////////////////////////////////////
@@ -164,6 +165,7 @@ function displayQuestion(){ //im pulling data out of my questionContent array an
 function checkAnswer(userAnswer){
     if ( userAnswer == questionContent[currentQuestion].answer){
         score++;
+        timeLeft++;
         playCorrect();
         updateScores();
     } else {
@@ -185,8 +187,11 @@ function checkAnswer(userAnswer){
         optionC.style.display = "none";
         optionD.style.display = "none";
         scoreBoard.style.display = "block";
-        timeLeft = 1;
-    } else {
+        timeOut.style.display = "none";
+        timerBox.style.display = "none";
+        timeLeft = 1000;
+        updateScoreboard();
+        } else {
         quizContainer.style.display = "none";
         questionText.style.display = "none";
         optionA.style.display = "none";
@@ -201,3 +206,12 @@ function updateScores() {
     displayScores.innerText = (" Your score is " + score);
 }
 
+function updateScoreboard(playerName, score) {
+    localStorage.setItem({
+            Name: playerName,
+            Points: score,
+    })
+}
+
+console.log(playerName)
+console.log(score)
