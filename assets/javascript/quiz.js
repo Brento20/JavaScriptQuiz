@@ -127,7 +127,7 @@ function startGame (){
     questionText.style.display = "block";
     displayQuestion();
     setTimeout(countdown, 1000);
-    playGameDrums();
+    //playGameDrums();
 }
 
 function countdown() {
@@ -160,11 +160,11 @@ function checkAnswer(userAnswer){
     if ( userAnswer == questionContent[currentQuestion].answer){
         score++;
         timeLeft++;
-        playCorrect();
+        //playCorrect();
         updateScores();
     } else {
         timeLeft--;
-        playIncorrect();
+        //playIncorrect();
     } if (currentQuestion < lastQuestion){
         currentQuestion++;
         displayQuestion();
