@@ -19,7 +19,7 @@ header {
     max-width: 400px;
     background-color: var(--lightbodyColor);
     margin: auto;
-    margin-top: 15%;
+    margin-top: 10%;
     padding: 20px;
 }
 h1 {
@@ -33,7 +33,7 @@ p {
 #start {
     margin:auto;
     background-color: var(--darkbodyColor);
-    max-width: 440px;
+    max-width: 400px;
     height: 30px;
     text-align: center;
     font-weight: 800;
@@ -44,7 +44,7 @@ p {
     max-width: 400px;
     background-color: var(--darkText);
     margin: auto;
-    margin-top: 15%;
+    margin-top: 10%;
     padding: 20px;
 }
 
@@ -68,12 +68,14 @@ p {
 ol {
     background-color: var(--accentColor);
     color: var(--lightText);
-    
+    text-align: center;
+    margin: 1rem;
 }
 
 li {
     color: var(--lightText);
     background-color: gray;
+
 }
 
 #start:hover {

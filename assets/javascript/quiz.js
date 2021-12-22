@@ -173,29 +173,27 @@ function checkAnswer(userAnswer){
         timeOut.style.display = "none";
         timerBox.style.display = "none";
         displayScores.style.display = "none";
-        timeLeft = 1000;
+        
     } else {
         quizContainer.style.display = "none";
     }
 }
 
 function updateScores() {
-    displayScores.innerText = (" Your score is " + score); 
+    displayScores.innerText = ("CORRECT ANSWERS: " + score); 
 }
 
-
 function loadScoreBoard(){
+    var totalScore = score * timeLeft;
+    timeLeft = 1000;
 
     //Gets the last winner from the last player and adds it to the variable "pastWinner"
     var pastWinner = JSON.parse(localStorage.getItem("leaderBoard")); 
-    
 
     var playerName = prompt("Player Name: ", "Player 1");
 
-    
-
     var currentWinner = document.createElement("li");
-    currentWinner.innerText = "Nice Try " + playerName + "! your score was " + score;
+    currentWinner.innerText = "Nice Try " + playerName + "! Your score was " + totalScore + " points";
     listOfWinners.appendChild(currentWinner);
     
     if (!pastWinner) {
@@ -206,16 +204,14 @@ function loadScoreBoard(){
     } else {
 
     var pastWinnerScore = document.createElement("li");
-    pastWinnerScore.innerText = "Past winner: " + pastWinner.Player + " scored " + pastWinner.Score + " points";
+    pastWinnerScore.innerText = "Last winner: " + pastWinner.Player + " scored " + pastWinner.Score + " points";
     listOfWinners.appendChild(pastWinnerScore);
 }
-    
 
     localStorage.setItem("leaderBoard", JSON.stringify({ 
         Player: playerName,
-        Score: score,
+        Score: totalScore,
     }));
-
 }
 
 
