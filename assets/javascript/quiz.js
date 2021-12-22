@@ -195,14 +195,20 @@ function loadScoreBoard(){
     
 
     var currentWinner = document.createElement("li");
-    var textNode = document.createTextNode(playerName + " scored " + score + " points.");
-    currentWinner.appendChild(textNode);
+    currentWinner.innerText = "Nice Try " + playerName + "! your score was " + score;
     listOfWinners.appendChild(currentWinner);
     
+    if (!pastWinner) {
+        localStorage.setItem("leaderBoard", JSON.stringify({ 
+            Player: "",
+            Score: "",
+        }));
+    } else {
 
     var pastWinnerScore = document.createElement("li");
-    pastWinnerScore.innerText = "Past winner: " + "<br>" + pastWinner.Player + " scored " + pastWinner.Score + " points";
+    pastWinnerScore.innerText = "Past winner: " + pastWinner.Player + " scored " + pastWinner.Score + " points";
     listOfWinners.appendChild(pastWinnerScore);
+}
     
 
     localStorage.setItem("leaderBoard", JSON.stringify({ 
@@ -211,6 +217,7 @@ function loadScoreBoard(){
     }));
 
 }
+
 
 //==================== TEST ZONE ========================
 
