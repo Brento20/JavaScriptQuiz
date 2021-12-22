@@ -56,31 +56,31 @@
     ///1. Storage for Questions (Objects in array).
 const questionContent = [ 
     {   question: "When watching Jumanji and writing JavaScript you must:",
-        optionA: "Turn off the movie",
-        optionB: "Google the IMDB of the whole cast and feel old",
-        optionC: "Build as many Jumanji puns into your JS as possible",
-        optionD: "Cry and accept defeat",
+        optionA: "Turn off the movie.",
+        optionB: "Remember the 90's and feel old.",
+        optionC: "Build as many Jumanji puns!! Duh!",
+        optionD: "Cry and accept defeat.",
         answer: "optionC",
     },
-    {   question: "Rolling the dice is to Jumanji, what [BLANK] is to 'Java-manji':",
+    {   question: "Rolling the dice is to Jumanji, what [BLANK] is to 'Java-manji.':",
         optionA: "Using a boolean.",
-        optionB: "Throwing your laptop into a river",
-        optionC: "Calling the customer service number",
+        optionB: "Throwing your laptop into a river.",
+        optionC: "Calling a customer service number.",
         optionD: "Using math.random.",
         answer: "optionD",
     },
     {   question: "After adding a click event listener, the user can...",
-        optionA: "Hear a clicking sound in the walls",
-        optionB: "Expect the application to respond to mouse clicks",
-        optionC: "Use the mouse like a throwing star",
-        optionD: "Roll the dice, landing on pairs 3 times, to exit the game",
+        optionA: "Hear a clicking sound in the walls.",
+        optionB: "Expect the application to respond to mouse clicks.",
+        optionC: "Use the mouse like a throwing star.",
+        optionD: "Roll the dice, landing on pairs 3 times, to exit the game.",
         answer: "optionB",
     },
     {   question: "The chance of receiving additional points for having so many Jumanji references in a JavaScript quiz is?",
-        optionA: "Extremely high, the content was very entertaining",
-        optionB: "Low, I hate Jumanji",
+        optionA: "Extremely high, the content was entertaining.",
+        optionB: "Low, I hate Jumanji.",
         optionC: "The application quit unexpectedly, report issue?",
-        optionD: "Ive been grading for hours and I just wanna take a nap?",
+        optionD: "Ive been grading for hours and I just wanna take a nap!",
         answer: "optionA",
     }];
 
@@ -183,6 +183,10 @@ function updateScores() {
     displayScores.innerText = ("CORRECT ANSWERS: " + score); 
 }
 
+////////////////////////////////////////////////////////////////////////////////
+////////////////////////////////////////////////////////////////////////////////
+//5. Scoreboard and local storage functions.
+
 function loadScoreBoard(){
     var totalScore = score * timeLeft;
     timeLeft = 1000;
@@ -214,6 +218,4 @@ function loadScoreBoard(){
     }));
 }
 
-
-//==================== TEST ZONE ========================
 

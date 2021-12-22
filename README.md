@@ -82,5 +82,6 @@ AS A coding boot camp student I WANT to take a timed quiz on JavaScript fundamen
 ## Images of deployed application
 
 Pre CSS images: 
+
 ![ScreenShot](assets/readmeImgs/preCssQuiz.png)
 ![ScreenShot](assets/readmeImgs/preCssStart.png)
