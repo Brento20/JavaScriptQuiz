@@ -27,10 +27,10 @@ AS A coding boot camp student I WANT to take a timed quiz on JavaScript fundamen
 |Event listener starts (using click). | complete |
 |Countdown timer starts with quiz.| complete |
 |Questions progress.| complete |
-|Game ends when all questions are answered or timer runs out.| semi-complete |
-|When game ends you can enter your name.||
-|Name and Score are saved to local Storage.||
-|Score Board shows recent scores.||
+|Game ends when all questions are answered or timer runs out.| complete |
+|When game ends you can enter your name.| complete |
+|Name and Score are saved to local Storage.| complete |
+|Score Board shows recent scores.| complete |
 |||
 
 
@@ -71,4 +71,16 @@ AS A coding boot camp student I WANT to take a timed quiz on JavaScript fundamen
     - When timer reaches 0 push score to local storage.
     - Display score board with scores.
 
+**4. Future Improvements**
+
+    - Add bootstrap to spice up the css
+    - Clean up JavaScript to help with readability
+    - Add a mute button for game sounds
+    - Add a scoreboard button on the front page
+
+
 ## Images of deployed application
+
+Pre CSS images: 
+![ScreenShot](assets/readmeImgs/preCssQuiz.png)
+![ScreenShot](assets/readmeImgs/preCssStart.png)
