@@ -21,7 +21,7 @@
     // displayQuestion(); - is the template that my object array fills.
     // checkAnswer(); - this one does a lot of the heavy lifting, activated by the onclick property from the HTML it updates score, alters timer and checks to see if the game is over.
 
-//5. 
+//5. Scoreboard and local storage functions.
 
 
 ///////////////////////////
@@ -39,7 +39,7 @@
         var header = document.querySelector("header");
         var quizContainer = document.getElementById("quizContainer");
         var playerNameBox = document.getElementById("playerNameBox");
-    // Questions and Options ID's linking to HTML
+    // Questions and Options ID's linking to HTM
         var questionText = document.getElementById("questionText");
         var optionA = document.getElementById("optionA");
         var optionB = document.getElementById("optionB");
@@ -107,10 +107,8 @@ function playIncorrect() {
 
 //3. Variables for game function.
 
-
-//var highScore = localStorage.getItem('highScore');
 var score = 0;
-var timeLeft = 31.00;
+var timeLeft = 30.00;
 var lastQuestion = questionContent.length-1; // I need to know this so I can end the game
 var currentQuestion = 0; // This is set to 0 because my questions are objects in the array above, I want to be able to ++ the currentQuestion value to move on to the next question as we go along.
 
@@ -127,7 +125,7 @@ function startGame (){
     questionText.style.display = "block";
     displayQuestion();
     setTimeout(countdown, 1000);
-    //playGameDrums();
+    playGameDrums();
 }
 
 function countdown() {
@@ -160,56 +158,59 @@ function checkAnswer(userAnswer){
     if ( userAnswer == questionContent[currentQuestion].answer){
         score++;
         timeLeft++;
-        //playCorrect();
+        playCorrect();
         updateScores();
     } else {
         timeLeft--;
-        //playIncorrect();
+        playIncorrect();
     } if (currentQuestion < lastQuestion){
         currentQuestion++;
         displayQuestion();
     } else if (currentQuestion == lastQuestion) {
-        collectData();
+        loadScoreBoard();
         quizContainer.style.display = "none";
         scoreBoard.style.display = "block";
         timeOut.style.display = "none";
         timerBox.style.display = "none";
+        displayScores.style.display = "none";
         timeLeft = 1000;
     } else {
         quizContainer.style.display = "none";
     }
 }
 
-function saveName(){
-    preventDefault()
-    console.log("im working");
-    console.log(playerName)
-}
-
-
 function updateScores() {
-    displayScores.innerText = (" Your score is " + score);  
+    displayScores.innerText = (" Your score is " + score); 
 }
 
 
-function collectData(){
+function loadScoreBoard(){
+
+    //Gets the last winner from the last player and adds it to the variable "pastWinner"
+    var pastWinner = JSON.parse(localStorage.getItem("leaderBoard")); 
+    
+
     var playerName = prompt("Player Name: ", "Player 1");
-    var node = document.createElement("LI");
+
+    
+
+    var currentWinner = document.createElement("li");
     var textNode = document.createTextNode(playerName + " scored " + score + " points.");
-    node.appendChild(textNode);
-    listOfWinners.appendChild(node);
+    currentWinner.appendChild(textNode);
+    listOfWinners.appendChild(currentWinner);
+    
+
+    var pastWinnerScore = document.createElement("li");
+    pastWinnerScore.innerText = "Past winner: " + "<br>" + pastWinner.Player + " scored " + pastWinner.Score + " points";
+    listOfWinners.appendChild(pastWinnerScore);
+    
+
     localStorage.setItem("leaderBoard", JSON.stringify({ 
         Player: playerName,
         Score: score,
     }));
+
 }
-
-function collectStoredData(){
-//
-}
-
-
-
 
 //==================== TEST ZONE ========================
 
