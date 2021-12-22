@@ -33,6 +33,7 @@
         var timeOut = document.getElementById("timeOut")
         var displayScores = document.getElementById("displayScores")
         var scoreBoard = document.getElementById("scoreBoard");
+        var listOfWinners = document.getElementById("listOfWinners");
     // Start Game button
         var startButton = document.getElementById("start");
         var header = document.querySelector("header");
@@ -45,8 +46,9 @@
         var optionC = document.getElementById("optionC");
         var optionD = document.getElementById("optionD");
     // Event Listeners
-    startButton.addEventListener("click", startGame);
+        startButton.addEventListener("click", startGame);
     // leaderBoard.addEventListener("click", leaderBoard);
+    
 
 ////////////////////////////////////////////////////////////////////////////////
 ////////////////////////////////////////////////////////////////////////////////
@@ -123,10 +125,6 @@ function startGame (){
     header.style.display = "none";
     quizContainer.style.display = "block";
     questionText.style.display = "block";
-    optionA.style.display = "block";
-    optionB.style.display = "block";
-    optionC.style.display = "block";
-    optionD.style.display = "block";
     displayQuestion();
     setTimeout(countdown, 1000);
     playGameDrums();
@@ -134,22 +132,20 @@ function startGame (){
 
 function countdown() {
     timeLeft--;
-    timerBox.innerHTML = String( timeLeft );
+    timerBox.innerHTML = ( "TIMER: " + timeLeft );
     if (timeLeft > 0) {
         setTimeout(countdown, 1000);
     } else {
         quizContainer.style.display = "none";
         questionText.style.display = "none";
-        optionA.style.display = "none";
-        optionB.style.display = "none";
-        optionC.style.display = "none";
-        optionD.style.display = "none";
         timeOut.style.display = "block";
     }
 };
 
+//im pulling data out of my questionContent array and using innerHTML to fill in the ol/li in my index.html 
+//using the ID tags i pulled using getElementId.
 
-function displayQuestion(){ //im pulling data out of my questionContent array and using innerHTML to fill in the ol/li in my index.html using the ID tags i pulled using getElementId.
+function displayQuestion(){ 
     var question = questionContent[currentQuestion];
     questionText.innerHTML = "<h2>" + question.question + "</h2>";
     optionA.innerHTML = question.optionA;
@@ -169,37 +165,22 @@ function checkAnswer(userAnswer){
     } else {
         timeLeft--;
         playIncorrect();
-        
-    }
-    console.log(score);
-    console.log(userAnswer);
-    console.log(questionContent[currentQuestion].answer)
-    if (currentQuestion < lastQuestion){
+    } if (currentQuestion < lastQuestion){
         currentQuestion++;
         displayQuestion();
     } else if (currentQuestion == lastQuestion) {
+        collectData();
         quizContainer.style.display = "none";
-        questionText.style.display = "none";
-        optionA.style.display = "none";
-        optionB.style.display = "none";
-        optionC.style.display = "none";
-        optionD.style.display = "none";
         scoreBoard.style.display = "block";
         timeOut.style.display = "none";
         timerBox.style.display = "none";
         timeLeft = 1000;
-        } else {
+    } else {
         quizContainer.style.display = "none";
-        questionText.style.display = "none";
-        optionA.style.display = "none";
-        optionB.style.display = "none";
-        optionC.style.display = "none";
-        optionD.style.display = "none";
-    //
     }
 }
 
-function saveName(playerName){
+function saveName(){
     preventDefault()
     console.log("im working");
     console.log(playerName)
@@ -207,7 +188,28 @@ function saveName(playerName){
 
 
 function updateScores() {
-    displayScores.innerText = (" Your score is " + score);
-    
+    displayScores.innerText = (" Your score is " + score);  
 }
+
+
+function collectData(){
+    var playerName = prompt("Player Name: ", "Player 1");
+    var node = document.createElement("LI");
+    var textNode = document.createTextNode(playerName + " scored " + score + " points.");
+    node.appendChild(textNode);
+    listOfWinners.appendChild(node);
+    localStorage.setItem("leaderBoard", JSON.stringify({ 
+        Player: playerName,
+        Score: score,
+    }));
+}
+
+function collectStoredData(){
+//
+}
+
+
+
+
+//==================== TEST ZONE ========================
 

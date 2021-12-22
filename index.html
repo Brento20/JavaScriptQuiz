@@ -22,12 +22,9 @@
     <div id="timerBox">TIMER</div>
     <div id="displayScores">SCORE</div>
     <div style="display: none;" id="scoreBoard">
-        <h2>SCOREBOARD</h2>
-        <form onsubmit="saveName(playerName)">
-            <label for="playerName " placeholder="Player Name" >
-            <input type="playerName" id="playerNameBox"><br>
-            <input type="submit" value="submit">
-        </form>
+        <h2>SCOREBOARD </h2>
+        <ul id="listOfWinners">
+        </ul>
     </div>
 
     <header> 
@@ -41,10 +38,10 @@
     
         <section ID="quizContainer" style="display: none;">
             <ol style="display: none;" id="questionText">Question</ol>
-                <li class="option" style="display: none;" id="optionA" onclick="checkAnswer('optionA')">optionA</li>
-                <li class="option" style="display: none;" id="optionB" onclick="checkAnswer('optionB')">optionB</li>
-                <li class="option" style="display: none;" id="optionC" onclick="checkAnswer('optionC')">optionC</li>
-                <li class="option" style="display: none;" id="optionD" onclick="checkAnswer('optionD')">optionD</li>
+                <li class="option" id="optionA" onclick="checkAnswer('optionA')">optionA</li>
+                <li class="option" id="optionB" onclick="checkAnswer('optionB')">optionB</li>
+                <li class="option" id="optionC" onclick="checkAnswer('optionC')">optionC</li>
+                <li class="option" id="optionD" onclick="checkAnswer('optionD')">optionD</li>
         </section>
 <!-- ===== name collection ===== -->
 
