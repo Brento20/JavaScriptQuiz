@@ -1,6 +1,6 @@
 # README Brenton Weaver JavaScriptQuiz V1.0
 
- LINK:  
+ LINK:  https://brento20.github.io/JavaScriptQuiz/
 
 ## **User Story**
 
