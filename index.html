@@ -21,7 +21,14 @@
 <!-- ===== DIV'S TO DISPLAY TIMER SCORE AND END SCOREBOARD ===== -->
     <div id="timerBox">TIMER</div>
     <div id="displayScores">SCORE</div>
-    <div style="display: none;" id="scoreBoard">SCOREBOARD</div>
+    <div style="display: none;" id="scoreBoard">
+        <h2>SCOREBOARD</h2>
+        <form onsubmit="saveName(playerName)">
+            <label for="playerName " placeholder="Player Name" >
+            <input type="playerName" id="playerNameBox"><br>
+            <input type="submit" value="submit">
+        </form>
+    </div>
 
     <header> 
         <h1>JAVAMANJI the QUIZ</h1><br>
@@ -39,6 +46,8 @@
                 <li class="option" style="display: none;" id="optionC" onclick="checkAnswer('optionC')">optionC</li>
                 <li class="option" style="display: none;" id="optionD" onclick="checkAnswer('optionD')">optionD</li>
         </section>
+<!-- ===== name collection ===== -->
+
 <!-- ===== LINK TO QUIZ JAVASCRIPT ===== -->
     <footer>
     <script src="./assets/javascript/quiz.js"></script>

@@ -27,9 +27,6 @@
 ///////////////////////////
 ///////////////////////////
 
-
-
-
 //0. Linking to HTML and setting variables.
     // Timer start
         var timerBox = document.getElementById("timerBox");
@@ -40,6 +37,7 @@
         var startButton = document.getElementById("start");
         var header = document.querySelector("header");
         var quizContainer = document.getElementById("quizContainer");
+        var playerNameBox = document.getElementById("playerNameBox");
     // Questions and Options ID's linking to HTML
         var questionText = document.getElementById("questionText");
         var optionA = document.getElementById("optionA");
@@ -108,12 +106,12 @@ function playIncorrect() {
 //3. Variables for game function.
 
 
-var highScore = localStorage.getItem('highScore');
+//var highScore = localStorage.getItem('highScore');
 var score = 0;
 var timeLeft = 31.00;
 var lastQuestion = questionContent.length-1; // I need to know this so I can end the game
 var currentQuestion = 0; // This is set to 0 because my questions are objects in the array above, I want to be able to ++ the currentQuestion value to move on to the next question as we go along.
-var playerName = prompt("Please enter player name:");
+
 
 ////////////////////////////////////////////////////////////////////////////////
 ////////////////////////////////////////////////////////////////////////////////
@@ -190,7 +188,6 @@ function checkAnswer(userAnswer){
         timeOut.style.display = "none";
         timerBox.style.display = "none";
         timeLeft = 1000;
-        updateScoreboard();
         } else {
         quizContainer.style.display = "none";
         questionText.style.display = "none";
@@ -202,16 +199,15 @@ function checkAnswer(userAnswer){
     }
 }
 
+function saveName(playerName){
+    preventDefault()
+    console.log("im working");
+    console.log(playerName)
+}
+
+
 function updateScores() {
     displayScores.innerText = (" Your score is " + score);
+    
 }
 
-function updateScoreboard(playerName, score) {
-    localStorage.setItem({
-            Name: playerName,
-            Points: score,
-    })
-}
-
-console.log(playerName)
-console.log(score)
