@@ -38,6 +38,7 @@ p {
     text-align: center;
     font-weight: 800;
     color: var(--lightText);
+
 }
 
 #quizContainer {
@@ -46,6 +47,7 @@ p {
     margin: auto;
     margin-top: 10%;
     padding: 20px;
+    border-radius: 15px 15px 15px 15px;
 }
 
 #timeOut {
@@ -56,7 +58,9 @@ p {
     margin-top: 15%;
     padding: 20px;
     color: #C4C4C4;
+    border-radius: 15px 15px 15px 15px;
 }
+
 
 #scoreBoard {
     max-width: 400px;
@@ -66,7 +70,9 @@ p {
     margin-top: 15%;
     padding: 20px;
     color: #C4C4C4;
+    border-radius: 15px 15px 15px 15px;
 }
+
 
 
 ol {

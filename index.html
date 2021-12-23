@@ -26,8 +26,8 @@
 </div>
     <div style="display: none;" id="scoreBoard">
         <h2 class="list-group" >SCOREBOARD </h2>
-        <ul id="listOfWinners">
-        </ul>
+        <ul id="listOfWinners"></ul>
+        <button type="button" onclick="location.href = 'https://brento20.github.io/JavaScriptQuiz/'"  class="btn btn-dark">TRY AGAIN</button>
     </div>
 
     <header> 
@@ -41,7 +41,9 @@
 <!-- ===== START BUTTON ===== -->
     <div id="start">START GAME</div>
 <!-- ===== YOU LOSE TIME UP ===== -->
-<div id="timeOut" style="display: none;" >TIME OUT</div>
+<div id="timeOut" style="display: none;" > <h2>TIME OUT: <br> Its ok! You can always try again!</h2>
+    <button type="button" onclick="location.href = 'https://brento20.github.io/JavaScriptQuiz/'"  class="btn btn-dark">TRY AGAIN</button>
+</div>
     
         <section ID="quizContainer" style="display: none;">
             <ol class="list-group" style="display: none;" id="questionText">Question</ol>
