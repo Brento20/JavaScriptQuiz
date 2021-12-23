@@ -157,19 +157,11 @@ function displayQuestion(){
 function checkAnswer(userAnswer){
     if ( userAnswer == questionContent[currentQuestion].answer){
         score++;
-        timeLeft++;
-        timeLeft++;
-        timeLeft++;
-        timeLeft++;
-        timeLeft++;
+        timeLeft+=10; // Time bonus for correct answer
         playCorrect();
         updateScores();
     } else {
-        timeLeft--;
-        timeLeft--;
-        timeLeft--;
-        timeLeft--;
-        timeLeft--;
+        timeLeft-=10;// Time penalty for incorrect answer
         playIncorrect();
     } if (currentQuestion < lastQuestion){
         currentQuestion++;
