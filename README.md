@@ -81,7 +81,14 @@ AS A coding boot camp student I WANT to take a timed quiz on JavaScript fundamen
 
 ## Images of deployed application
 
-Pre CSS images: 
+Early dev images: 
 
 ![ScreenShot](assets/readmeImgs/preCssQuiz.png)
 ![ScreenShot](assets/readmeImgs/preCssStart.png)
+
+Post CSS tweaks:
+
+![ScreenShot](assets/readmeImgs/main.png)
+![ScreenShot](assets/readmeImgs/questions.png)
+![ScreenShot](assets/readmeImgs/timeout.png)
+![ScreenShot](assets/readmeImgs/scoreboard.png)

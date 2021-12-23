@@ -158,9 +158,17 @@ function checkAnswer(userAnswer){
     if ( userAnswer == questionContent[currentQuestion].answer){
         score++;
         timeLeft++;
+        timeLeft++;
+        timeLeft++;
+        timeLeft++;
+        timeLeft++;
         playCorrect();
         updateScores();
     } else {
+        timeLeft--;
+        timeLeft--;
+        timeLeft--;
+        timeLeft--;
         timeLeft--;
         playIncorrect();
     } if (currentQuestion < lastQuestion){
